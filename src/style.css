@@ -1,6 +1,13 @@
 
+
+
+
+
 #edd-stade-section{
-    transform: perspective(1000px) rotateX(13deg);
+    transform: perspective(1500px) rotateX(15deg);
+}
+#edd-badges div{
+    z-index: 100;
 }
 #edd-gk{
     grid-area: 6/3;
@@ -46,3 +53,8 @@
 
 }
 
+#blabla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

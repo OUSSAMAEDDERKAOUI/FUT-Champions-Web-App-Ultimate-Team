@@ -16,18 +16,76 @@
             <img class="h-9" src="./images/Capture.PNG" alt="">
         </div>
     </header>
-    <main class="bg-[url('./images/behang-met-een-voetbalstadion_6.jpg')] bg-cover w-[100%] h-[500px] ">
+    <main class="bg-[url('./images/behang-met-een-voetbalstadion_6.jpg')] bg-cover w-[100%] h-[520px] ">
         <section class="relative" id="edd-stade-section">
-            <img class="w-[60%] h-[500px]  opacity-70 absolute" id="edd-stade-img" src="./images/stadium_background.webp"
+            <div class="">
+                <img class="w-[60%] h-[500px] absolute opacity-40 " id="edd-stade-img" src="./images/stadium_background.webp"
                 alt="stade image disgne">
-
-            <div class="w-[60%] h-[500px]   border border-black grid grid-cols-5 grid-rows-7">
-                <div id="edd-gk" class="">
+            </div>
+            
+            <div class="w-[60%] h-[470px] gap-5 drop-shadow-xl	grid grid-cols-5 grid-rows-7" id="edd-badges">
+                <div id="edd-gk" class=" cursor-pointer">
                     <img src="./images/badge_total_rush.webp" alt="image badge GK">
                 </div>
                 <div id="edd-rb">
-                    <img src="./images/badge_total_rush.webp" alt="image badge RB">
-                </div>
+                    <div id="edd-rb">
+                        <div class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                            <div class="relative flex text-[#e9cc74] px-[0.3rem]">
+                                <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
+                                    <div class="font-bold text-5xl text-[1rem] mt-5">97</div>
+                                    <div class="font-bold">RW</div>
+                                    <div class="block">
+                                        <img src="https://cdn.sofifa.net/flags/ar.png" alt="Nationalité" class="w-[1rem] h-[14px] object-contain" />
+                                    </div>
+                                    <div class="block">
+                                        <img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="Club" class="w-[1rem] h-[14px] object-contain" />
+                                    </div>
+                                </div>
+                                <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+                                    <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Nom du joueur" class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <div class="text-[#e9cc74] w-[90%] mx-auto">
+                                    <div class="text-center w-full text-[0.6rem] uppercase border-b-2 border-[#e9cc74]/[0.1]">
+                                        <span class="block text-shadow-lg"></span>
+                                    </div>
+                                    <div id="blabla" class="flex gap-x-2 ">
+                                        <div class=" ">
+                                            <div class="flex  text-[0.5rem] uppercase">
+                                                <div class="font-bold mr-[0.3rem]">97</div>
+                                                <div class="font-light">PAC</div>
+                                            </div>
+                                            <div class="flex  text-[0.5rem] uppercase">
+                                                <span class="font-bold mr-[0.3rem]">95</span>
+                                                <span class="font-light">SHO</span>
+                                            </div>
+                                            <div class="flex text-[0.5rem] uppercase">
+                                                <span class="font-bold mr-[0.3rem]">94</span>
+                                                <span class="font-light">PAS</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex  text-[0.5rem] uppercase">
+                                                <span class="font-bold mr-[0.3rem]">99</span>
+                                                <span class="font-light">DRI</span>
+                                            </div>
+                                            <div class="flex  text-[0.5rem] uppercase">
+                                                <span class="font-bold mr-[0.3rem]">35</span>
+                                                <span class="font-light">DEF</span>
+                                            </div>
+                                            <div class="flex  text-[0.5rem] uppercase">
+                                                <span class="font-bold mr-[0.3rem]">68</span>
+                                                <span class="font-light">PHY</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                               </div>
                 <div id="edd-cbr">
                     <img src="./images/badge_total_rush.webp" alt="image badge CBR">
                 </div>
@@ -59,6 +117,47 @@
 
         </section>
         <section>
+
+        </section>
+        <section id="edd-form">
+            
+
+<form class="max-w-md mx-auto">
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number (123-456-7890)</label>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="floating_company" id="floating_company" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_company" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company (Ex. Google)</label>
+      </div>
+    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+  </form>
+  
 
         </section>
     </main>
