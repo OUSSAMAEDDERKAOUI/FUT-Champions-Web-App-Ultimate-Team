@@ -2,3 +2,47 @@
 #edd-stade-section{
     transform: perspective(1000px) rotateX(13deg);
 }
+#edd-gk{
+    grid-area: 6/3;
+}
+#edd-rb{
+    grid-area: 4/5;
+
+}
+#edd-cbr{
+    grid-area: 5/4;
+
+}
+#edd-cbl{
+    grid-area: 5/2;
+
+}
+#edd-lb{
+    grid-area: 4/1;
+
+}
+#edd-rm{
+    grid-area: 2/5;
+
+}
+#edd-cmr{
+    grid-area: 3/4;
+
+}
+#edd-cml{
+    grid-area: 3/2;
+
+}
+#edd-lm{
+    grid-area: 2/1;
+
+}
+#edd-str{
+    grid-area: 1/2;
+
+}
+#edd-stl{
+    grid-area: 1/4;
+
+}
+
