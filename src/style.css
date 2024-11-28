@@ -3,9 +3,9 @@
 
 
 
-#edd-stade-section{
+/* #edd-stade-section{
     transform: perspective(1500px) rotateX(15deg);
-}
+} */
 #edd-badges div{
     z-index: 100;
 }
