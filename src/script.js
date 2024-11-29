@@ -468,7 +468,7 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         alert("Formulaire soumis avec succès !");
         console.log(document.getElementById(selectedCard.id))
 
-
+        if (!item.position.includes("GK")) {
         document.getElementById(`${selectedCard.id}`).innerHTML = `
             <div class="flex justify-center  ">
                                 <div class="cursor-pointer relative" >
@@ -538,7 +538,73 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
                                     </div>
                                 </div>
         `;    }
+        }
+        else if (item.position.includes('GK')) {
+            document.getElementById(`${selectedCard.id}`).innerHTML += ` <div class="flex justify-center ">
+            <div id="${item.rating + item.name}" class="cursor-pointer edd-filter-player" data-position="${selectedCard.dataset.position}">
+                <div
+                    class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                    <div class="relative flex text-[#e9cc74] px-[0.3rem]">
+                        <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
+                            <div class="font-bold text-5xl text-[1rem] mt-5">${item.rating}</div>
+                            <div class="font-bold">${selectedCard.dataset.position}</div>
+                            <div class="block">
+                                <img src="${flag}" alt="Nationalité"
+                                    class="w-[1rem] h-[14px] object-contain" />
+                            </div>
+                            <div class="block">
+                                <img src="${clubLogo}" alt="Club"
+                                    class="w-[1rem] h-[14px] object-contain" />
+                            </div>
+                        </div>
+                        <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+                            <img src="${photo}"
+                                alt="Nom du joueur"
+                                class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
+                        </div>
+                    </div>
 
-    
+                    <div class="relative">
+                        <div class="text-[#e9cc74] w-[90%] mx-auto">
+                            <div
+                                class="text-center w-full text-[0.6rem] uppercase border-b-2 border-[#e9cc74]/[0.1]">
+                                <span class="block text-shadow-lg"></span>
+                            </div>
+                            <div id="blabla" class="flex gap-x-2 ">
+                                <div class=" ">
+                                    <div class="flex  text-[0.5rem] uppercase">
+                                        <div class="font-bold mr-[0.3rem]">${diving}</div>
+                                        <div class="font-light">DIV</div>
+                                    </div>
+                                    <div class="flex  text-[0.5rem] uppercase">
+                                        <span class="font-bold mr-[0.3rem]">${handling}</span>
+                                        <span class="font-light">HAN</span>
+                                    </div>
+                                    <div class="flex text-[0.5rem] uppercase">
+                                        <span class="font-bold mr-[0.3rem]">${reflexes}</span>
+                                        <span class="font-light">REF</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex  text-[0.5rem] uppercase">
+                                        <span class="font-bold mr-[0.3rem]">${kicking}</span>
+                                        <span class="font-light">KIC</span>
+                                    </div>
+                                    <div class="flex  text-[0.5rem] uppercase">
+                                        <span class="font-bold mr-[0.3rem]">${speed}</span>
+                                        <span class="font-light">SPD</span>
+                                    </div>
+                                    <div class="flex  text-[0.5rem] uppercase">
+                                        <span class="font-bold mr-[0.3rem]">${positioning}</span>
+                                        <span class="font-light">POS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+
+        }
 
 })
