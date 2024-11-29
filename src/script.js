@@ -5,6 +5,12 @@ document.getElementById('edd-exist-player').onclick = function () {
     document.getElementById('edd-exist-players').classList.remove('hidden');
     document.getElementById('form-custom-player').classList.add('hidden');
 };
+document.getElementById('edd-cancel-custom2').onclick = function () {
+    document.getElementById('edd-popup').classList.add('hidden');
+};
+document.getElementById('edd-cancel-custom').onclick = function () {
+    document.getElementById('edd-popup').classList.add('hidden');
+};
 document.getElementById('edd-new-player').onclick = function (e) {
     document.getElementById('edd-exist-players').classList.add('hidden');
     document.getElementById('form-custom-player').classList.remove('hidden');
@@ -16,8 +22,8 @@ document.getElementById('edd-new-player').onclick = function (e) {
 document.querySelectorAll(".edd-select-player").forEach(function (exist) {
     exist.addEventListener('click',function (event) {
         // console.log("ddssdd",event.target.parentElement);
-        console.log("ddssdd", event.target.closest('.edd-select-player').id);
-        const playerCartTerrain = event.target.closest('.edd-select-player');
+        // console.log("ddssdd", event.target.closest('.edd-select-player').id);
+        const playerCartTerrain = this;
         document.getElementById('edd-popup').classList.remove('hidden');
 
         const addevent = function (event) {
@@ -28,15 +34,17 @@ document.querySelectorAll(".edd-select-player").forEach(function (exist) {
             removeEvent();
         }
 
+        
+
         document.querySelectorAll('.edd-filter-player').forEach(function (cart) {
 
-            cart.addEventListener('click', addevent)
+            cart.onclick = addevent;
         })
         window.addevent = addevent;
         function removeEvent() {
             if (window.addevent) {
                 document.querySelectorAll(".edd-filter-player").forEach(function (item) {
-                    item.removeEventListener('click', window.addevent);
+                    item.onclick = null;
                 })
             }
         }
@@ -205,13 +213,118 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
 
 
 
-document.getElementById('edd-confirm-custom').addEventListener('click', function () {
+// document.getElementById('edd-confirm-custom').addEventListener('click', function (e) {
+// e.preventDefault();
+//     let name = document.getElementById('edd-player-name').value;
+//     let photo = document.getElementById('edd-player-picture').value;
+//     let nationality = document.getElementById('edd-nationality').value;
+//     let flag = document.getElementById('edd-nation-flag').value;
+//     let club = document.getElementById('edd-club').value;
+//     let clubLogo = document.getElementById('edd-club-logo').value;
+//     let pace = document.getElementById('edd-PAC').value;
+//     let shooting = document.getElementById('edd-SHO').value;
+//     let physical = document.getElementById('edd-PHY').value;
+//     let passing = document.getElementById('edd-PAS').value;
+//     let dribbling = document.getElementById('edd-DRI').value;
+//     let defending = document.getElementById('edd-DEF').value;
+//     let rating = document.getElementById('edd-RAT').value;
+
+
+//     document.getElementById('edd-sub').innerHTML += ` <div class="flex justify-center  ">
+//             <div class="cursor-pointer " >
+//                 <div
+//                     class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+//                     <div class="relative flex text-[#e9cc74] px-[0.3rem]">
+//                         <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
+//                             <div class="font-bold text-5xl text-[1rem] mt-5">${rating}</div>
+//                             <div class="font-bold">lw</div>
+//                             <div class="block">
+//                                 <img src="${flag}" alt="Nationalité"
+//                                     class="w-[1rem] h-[14px] object-contain" />
+//                             </div>
+//                             <div class="block">
+//                                 <img src="${clubLogo}" alt="Club"
+//                                     class="w-[1rem] h-[14px] object-contain" />
+//                             </div>
+//                         </div>
+//                         <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+//                             <img src="${photo}"
+//                                 alt="Nom du joueur"
+//                                 class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
+//                         </div>
+//                     </div>
+
+//                     <div class="relative">
+//                         <div class="text-[#e9cc74] w-[90%] mx-auto">
+//                             <div
+//                                 class="text-center w-full text-[0.6rem] uppercase border-b-2 border-[#e9cc74]/[0.1]">
+//                                 <span class="block text-shadow-lg"></span>
+//                             </div>
+//                             <div id="blabla" class="flex gap-x-2 ">
+//                                 <div class=" ">
+//                                     <div class="flex  text-[0.5rem] uppercase">
+//                                         <div class="font-bold mr-[0.3rem]">${pace}</div>
+//                                         <div class="font-light">PAC</div>
+//                                     </div>
+//                                     <div class="flex  text-[0.5rem] uppercase">
+//                                         <span class="font-bold mr-[0.3rem]">${shooting}</span>
+//                                         <span class="font-light">SHO</span>
+//                                     </div>
+//                                     <div class="flex text-[0.5rem] uppercase">
+//                                         <span class="font-bold mr-[0.3rem]">${passing}</span>
+//                                         <span class="font-light">PAS</span>
+//                                     </div>
+//                                 </div>
+//                                 <div>
+//                                     <div class="flex  text-[0.5rem] uppercase">
+//                                         <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+//                                         <span class="font-light">DRI</span>
+//                                     </div>
+//                                     <div class="flex  text-[0.5rem] uppercase">
+//                                         <span class="font-bold mr-[0.3rem]">${defending}</span>
+//                                         <span class="font-light">DEF</span>
+//                                     </div>
+//                                     <div class="flex  text-[0.5rem] uppercase">
+//                                         <span class="font-bold mr-[0.3rem]">${physical}</span>
+//                                         <span class="font-light">PHY</span>
+//                                     </div>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>`
+
+// })
+
+
+
+
+let selectedCard = null; // Variable pour stocker la carte sélectionnée
+
+// Écoutez les clics sur les cartes de joueurs
+document.querySelectorAll('.edd-select-player').forEach(card => {
+    card.addEventListener('click', function() {
+        selectedCard = this; // Stocke la carte sélectionnée
+        console.log(selectedCard.id);
+        // Optionnel : vous pouvez mettre en surbrillance la carte sélectionnée
+        document.querySelectorAll('.edd-select-player').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
+
+// Lorsque le bouton est cliqué, ajoutez les informations du joueur à la carte sélectionnée
+document.getElementById('edd-confirm-custom').addEventListener('click', function(e) {
+     e.preventDefault();
+
+    if (!selectedCard) {
+        alert("Veuillez d'abord sélectionner une carte de joueur.");
+        return;
+    }
 
     let name = document.getElementById('edd-player-name').value;
     let photo = document.getElementById('edd-player-picture').value;
-    let nationality = document.getElementById('src/index.html').value;
     let flag = document.getElementById('edd-nation-flag').value;
-    let club = document.getElementById('edd-club').value;
     let clubLogo = document.getElementById('edd-club-logo').value;
     let pace = document.getElementById('edd-PAC').value;
     let shooting = document.getElementById('edd-SHO').value;
@@ -219,75 +332,208 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
     let passing = document.getElementById('edd-PAS').value;
     let dribbling = document.getElementById('edd-DRI').value;
     let defending = document.getElementById('edd-DEF').value;
-    let rating = document.getElementById('"edd-RAT').value;
+    let rating = document.getElementById('edd-RAT').value;
+    // let position = document.getElementById('edd-position').value;
 
-
-    document.getElementById('edd-exist-players').innerHTML += ` <div class="flex justify-center  ">
-            <div class="cursor-pointer " >
-                <div
-                    class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
-                    <div class="relative flex text-[#e9cc74] px-[0.3rem]">
-                        <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
-                            <div class="font-bold text-5xl text-[1rem] mt-5">${rating}</div>
-                            <div class="font-bold">${item.position}</div>
-                            <div class="block">
-                                <img src="${flag}" alt="Nationalité"
-                                    class="w-[1rem] h-[14px] object-contain" />
-                            </div>
-                            <div class="block">
-                                <img src="${clubLogo}" alt="Club"
-                                    class="w-[1rem] h-[14px] object-contain" />
-                            </div>
-                        </div>
-                        <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
-                            <img src="${photo}"
-                                alt="Nom du joueur"
-                                class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="text-[#e9cc74] w-[90%] mx-auto">
-                            <div
-                                class="text-center w-full text-[0.6rem] uppercase border-b-2 border-[#e9cc74]/[0.1]">
-                                <span class="block text-shadow-lg"></span>
-                            </div>
-                            <div id="blabla" class="flex gap-x-2 ">
-                                <div class=" ">
-                                    <div class="flex  text-[0.5rem] uppercase">
-                                        <div class="font-bold mr-[0.3rem]">${pace}</div>
-                                        <div class="font-light">PAC</div>
+    
+console.log(document.getElementById(selectedCard.id))
+    // Ajoutez le joueur à la carte sélectionnée
+    document.getElementById(`${selectedCard.id}`).innerHTML = `
+        <div class="flex justify-center  ">
+                            <div class="cursor-pointer " >
+                                <div
+                                    class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                                    <div class="relative flex text-[#e9cc74] px-[0.3rem]">
+                                        <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
+                                            <div class="font-bold text-5xl text-[1rem] mt-5">${rating}</div>
+                                            <div class="font-bold">lw</div>
+                                            <div class="block">
+                                                <img src="${flag}" alt="Nationalité"
+                                                    class="w-[1rem] h-[14px] object-contain" />
+                                            </div>
+                                            <div class="block">
+                                                <img src="${clubLogo}" alt="Club"
+                                                    class="w-[1rem] h-[14px] object-contain" />
+                                            </div>
+                                        </div>
+                                        <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+                                            <img src="${photo}"
+                                                alt="Nom du joueur"
+                                                class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
+                                        </div>
                                     </div>
-                                    <div class="flex  text-[0.5rem] uppercase">
-                                        <span class="font-bold mr-[0.3rem]">${shooting}</span>
-                                        <span class="font-light">SHO</span>
-                                    </div>
-                                    <div class="flex text-[0.5rem] uppercase">
-                                        <span class="font-bold mr-[0.3rem]">${passing}</span>
-                                        <span class="font-light">PAS</span>
+                
+                                    <div class="relative">
+                                        <div class="text-[#e9cc74] w-[90%] mx-auto">
+                                            <div
+                                                class="text-center w-full text-[0.6rem] uppercase border-b-2 border-[#e9cc74]/[0.1]">
+                                                <span class="block text-shadow-lg"></span>
+                                            </div>
+                                            <div id="blabla" class="flex gap-x-2 ">
+                                                <div class=" ">
+                                                    <div class="flex  text-[0.5rem] uppercase">
+                                                        <div class="font-bold mr-[0.3rem]">${pace}</div>
+                                                        <div class="font-light">PAC</div>
+                                                    </div>
+                                                    <div class="flex  text-[0.5rem] uppercase">
+                                                        <span class="font-bold mr-[0.3rem]">${shooting}</span>
+                                                        <span class="font-light">SHO</span>
+                                                    </div>
+                                                    <div class="flex text-[0.5rem] uppercase">
+                                                        <span class="font-bold mr-[0.3rem]">${passing}</span>
+                                                        <span class="font-light">PAS</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="flex  text-[0.5rem] uppercase">
+                                                        <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+                                                        <span class="font-light">DRI</span>
+                                                    </div>
+                                                    <div class="flex  text-[0.5rem] uppercase">
+                                                        <span class="font-bold mr-[0.3rem]">${defending}</span>
+                                                        <span class="font-light">DEF</span>
+                                                    </div>
+                                                    <div class="flex  text-[0.5rem] uppercase">
+                                                        <span class="font-bold mr-[0.3rem]">${physical}</span>
+                                                        <span class="font-light">PHY</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="flex  text-[0.5rem] uppercase">
-                                        <span class="font-bold mr-[0.3rem]">${dribbling}</span>
-                                        <span class="font-light">DRI</span>
-                                    </div>
-                                    <div class="flex  text-[0.5rem] uppercase">
-                                        <span class="font-bold mr-[0.3rem]">${defending}</span>
-                                        <span class="font-light">DEF</span>
-                                    </div>
-                                    <div class="flex  text-[0.5rem] uppercase">
-                                        <span class="font-bold mr-[0.3rem]">${physical}</span>
-                                        <span class="font-light">PHY</span>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>`
+    `;
 
-})
+    // Réinitialiser la sélection de carte
+    selectedCard.classList.remove('selected');
+    selectedCard = null; // Réinitialise la sélection
+    document.getElementById('form-custom-player').reset();
+});
 
 
+
+
+
+
+
+
+// document.querySelectorAll(".edd-select-player").forEach(function (exist) {
+//     exist.addEventListener('click',function (event) {
+//         // console.log("ddssdd",event.target.parentElement);
+//         // console.log("ddssdd", event.target.closest('.edd-select-player').id);
+//         document.getElementById('edd-popup').classList.remove('hidden');
+
+//         const addevent = function (event) {
+//             // console.log(event.target.closest('.edd-filter-player').id);
+//             document.getElementById('edd-confirm-custom').addEventListener('click', function (e) {
+//                 e.preventDefault();
+//                     let name = document.getElementById('edd-player-name').value;
+//                     let photo = document.getElementById('edd-player-picture').value;
+//                     let nationality = document.getElementById('edd-nationality').value;
+//                     let flag = document.getElementById('edd-nation-flag').value;
+//                     let club = document.getElementById('edd-club').value;
+//                     let clubLogo = document.getElementById('edd-club-logo').value;
+//                     let pace = document.getElementById('edd-PAC').value;
+//                     let shooting = document.getElementById('edd-SHO').value;
+//                     let physical = document.getElementById('edd-PHY').value;
+//                     let passing = document.getElementById('edd-PAS').value;
+//                     let dribbling = document.getElementById('edd-DRI').value;
+//                     let defending = document.getElementById('edd-DEF').value;
+//                     let rating = document.getElementById('edd-RAT').value;
+                
+                
+//                     document.getElementById('edd-sub').innerHTML += ` <div class="flex justify-center  ">
+//                             <div class="cursor-pointer " >
+//                                 <div
+//                                     class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+//                                     <div class="relative flex text-[#e9cc74] px-[0.3rem]">
+//                                         <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
+//                                             <div class="font-bold text-5xl text-[1rem] mt-5">${rating}</div>
+//                                             <div class="font-bold">lw</div>
+//                                             <div class="block">
+//                                                 <img src="${flag}" alt="Nationalité"
+//                                                     class="w-[1rem] h-[14px] object-contain" />
+//                                             </div>
+//                                             <div class="block">
+//                                                 <img src="${clubLogo}" alt="Club"
+//                                                     class="w-[1rem] h-[14px] object-contain" />
+//                                             </div>
+//                                         </div>
+//                                         <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+//                                             <img src="${photo}"
+//                                                 alt="Nom du joueur"
+//                                                 class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
+//                                         </div>
+//                                     </div>
+                
+//                                     <div class="relative">
+//                                         <div class="text-[#e9cc74] w-[90%] mx-auto">
+//                                             <div
+//                                                 class="text-center w-full text-[0.6rem] uppercase border-b-2 border-[#e9cc74]/[0.1]">
+//                                                 <span class="block text-shadow-lg"></span>
+//                                             </div>
+//                                             <div id="blabla" class="flex gap-x-2 ">
+//                                                 <div class=" ">
+//                                                     <div class="flex  text-[0.5rem] uppercase">
+//                                                         <div class="font-bold mr-[0.3rem]">${pace}</div>
+//                                                         <div class="font-light">PAC</div>
+//                                                     </div>
+//                                                     <div class="flex  text-[0.5rem] uppercase">
+//                                                         <span class="font-bold mr-[0.3rem]">${shooting}</span>
+//                                                         <span class="font-light">SHO</span>
+//                                                     </div>
+//                                                     <div class="flex text-[0.5rem] uppercase">
+//                                                         <span class="font-bold mr-[0.3rem]">${passing}</span>
+//                                                         <span class="font-light">PAS</span>
+//                                                     </div>
+//                                                 </div>
+//                                                 <div>
+//                                                     <div class="flex  text-[0.5rem] uppercase">
+//                                                         <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+//                                                         <span class="font-light">DRI</span>
+//                                                     </div>
+//                                                     <div class="flex  text-[0.5rem] uppercase">
+//                                                         <span class="font-bold mr-[0.3rem]">${defending}</span>
+//                                                         <span class="font-light">DEF</span>
+//                                                     </div>
+//                                                     <div class="flex  text-[0.5rem] uppercase">
+//                                                         <span class="font-bold mr-[0.3rem]">${physical}</span>
+//                                                         <span class="font-light">PHY</span>
+//                                                     </div>
+//                                                 </div>
+//                                             </div>
+//                                         </div>
+//                                     </div>
+//                                 </div>
+//                             </div>`
+                
+//                 })
+//             document.getElementById('edd-popup').classList.add('hidden');
+//             removeEvent();
+//         }
+
+//         document.querySelectorAll('.edd-filter-player').forEach(function (cart) {
+
+//             cart.addEventListener('click', addevent)
+//         })
+//         window.addevent = addevent;
+//         function removeEvent() {
+//             if (window.addevent) {
+//                 document.querySelectorAll(".edd-filter-player").forEach(function (item) {
+//                     item.removeEventListener('click', window.addevent);
+//                 })
+//             }
+//         }
+//         // document.querySelectorAll('.edd-filter-player').forEach((item)=>{  
+//         //     console.log(item.dataset.position, exist.dataset.position);   
+//         //     if(item.dataset.position===exist.dataset.position){
+//         //         item.style.display='block' ;
+//         //     }
+//         //     else{
+//         //         item.style.display='none' ;
+//         //     }
+//         // })
+//     })
+// })
 
