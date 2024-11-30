@@ -365,22 +365,23 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
 
 // }
 
+// REMOVE CARD CODE //
 
 function removePlayer(event ,element) {
 event.stopPropagation()  ;
   const card = element.closest('.cursor-pointer');
     if (card) {
         document.getElementById(`${selectedCard.id}`).innerHTML = `
-        <div id="${selectedCard.id}" class="cursor-pointer edd-select-player" data-position="CB">
+        <div id="${selectedCard.id}" class="cursor-pointer edd-select-player" >
                         <img src="./images/badge_total_rush.webp" alt="image badge ${selectedCard.id}">
                     </div>
         `
+        document.getElementById('form-custom-player').reset();
     }
 }
-    document.getElementById('form-custom-player').reset();
 
 
-
+// La fonction AJOUTE manuel
 
 let selectedCard = null; 
 
@@ -395,6 +396,7 @@ document.querySelectorAll('.edd-select-player').forEach(card => {
 
 document.getElementById('edd-confirm-custom').addEventListener('click', function(e) {
      e.preventDefault();
+
 
     if (!selectedCard) {
         alert("Veuillez d'abord sélectionner une carte de joueur.");
@@ -468,7 +470,7 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         alert("Formulaire soumis avec succès !");
         console.log(document.getElementById(selectedCard.id))
 
-        if (!item.position.includes("GK")) {
+        if (!selectedCard.id.includes("GK")) {
         document.getElementById(`${selectedCard.id}`).innerHTML = `
             <div class="flex justify-center  ">
                                 <div class="cursor-pointer relative" >
@@ -606,5 +608,6 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
             </div>`
 
         }
+        document.getElementById('form-custom-player').reset();
 
 })
