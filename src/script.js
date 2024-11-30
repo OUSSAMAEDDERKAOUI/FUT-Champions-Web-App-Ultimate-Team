@@ -25,7 +25,7 @@ document.getElementById('edd-new-player').onclick = function (e) {
 
 
 document.querySelectorAll(".edd-select-player").forEach(function (exist) {
-    exist.addEventListener('click',function (event) {
+    exist.addEventListener('click', function (event) {
         // console.log("ddssdd",event.target.parentElement);
         // console.log("ddssdd", event.target.closest('.edd-select-player').id);
         const playerCartTerrain = this;
@@ -39,7 +39,7 @@ document.querySelectorAll(".edd-select-player").forEach(function (exist) {
             removeEvent();
         }
 
-        
+
 
         document.querySelectorAll('.edd-filter-player').forEach(function (cart) {
 
@@ -53,28 +53,28 @@ document.querySelectorAll(".edd-select-player").forEach(function (exist) {
                 })
             }
         }
-        document.querySelectorAll('.edd-filter-player').forEach((item)=>{  
-            console.log(item.dataset.position, exist.dataset.position);   
-            if(item.dataset.position===exist.dataset.position){
-                item.style.display='block' ;
+        document.querySelectorAll('.edd-filter-player').forEach((item) => {
+            console.log(item.dataset.position, exist.dataset.position);
+            if (item.dataset.position === exist.dataset.position) {
+                item.style.display = 'block';
             }
-            else{
-                item.style.display='none' ;
+            else {
+                item.style.display = 'none';
             }
         })
     })
 })
 
 
-let list= JSON.parse(localStorage.getItem('futPlayers')) || [];
+let list = JSON.parse(localStorage.getItem('futPlayers')) || [];
 
 fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-Team-Assets/players.json`)
     .then(resultat => resultat.json())
     .then(res => {
 
-        if(list.length===0){
+        if (list.length === 0) {
             list = res.players;
-        localStorage.setItem('futPlayers',JSON.stringify(list));
+            localStorage.setItem('futPlayers', JSON.stringify(list));
 
         }
         list.forEach(item => {
@@ -146,8 +146,8 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
                     </div>
                 </div>`
 
-                document.getElementById('edd-auto-players').innerHTML += ` <div id="${item.rating + item.name}" class="flex justify-center edd-filter-player " data-position="${item.position}">
-            <div  class="cursor-pointer relative  " >
+                document.getElementById('edd-auto-players').innerHTML += ` <div  class="flex justify-center edd-filter-player " data-position="${item.position}">
+            <div  class="cursor-pointer relative holaclass  " id="${item.rating + item.name}" >
             <div class=" top-0 right-0 p-1 absolute w-11 h-5 z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
    <span class="remove-player cursor-pointer font-bold text-red-500 text-sm">X</span> 
  </div>
@@ -350,11 +350,11 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
     })
 
 // function removeFun(){
-    
+
 //     let removeButton = document.querySelectorAll('.remove-player');
-   
+
 //     removeButton.forEach(rmvbtn=>{
-        
+
 //         console.log(rmvbtn)
 //         this.onclick = function(e) {
 //             console.log("ddd")
@@ -364,15 +364,18 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
 //     })
 
 // }
-
+//event.target.closest('.edd-filter-player')
 // REMOVE CARD CODE //
 
-function removePlayer(event ,element) {
-event.stopPropagation()  ;
-  const card = element.closest('.cursor-pointer');
+function removePlayer(event, element) {
+    event.stopPropagation();
+    const card = element.closest('.cursor-pointer');
+console.log(card.id)
     if (card) {
-        document.getElementById(`${selectedCard.id}`).innerHTML = `
-        <div id="${selectedCard.id}" class="cursor-pointer edd-select-player" >
+
+        // card.remove();
+        document.getElementById(`${card.id}`).innerHTML = `
+        <div id="" class=" edd-select-player" >
                         <img src="./images/badge_total_rush.webp" alt="image badge ${selectedCard.id}">
                     </div>
         `
@@ -381,21 +384,21 @@ event.stopPropagation()  ;
 }
 
 
-// La fonction AJOUTE manuel
+// La fonction d'AJOUTE manuel
 
-let selectedCard = null; 
+let selectedCard = null;
 
 document.querySelectorAll('.edd-select-player').forEach(card => {
-    card.addEventListener('click', function() {
-        selectedCard = this; 
+    card.addEventListener('click', function () {
+        selectedCard = this;
         console.log(selectedCard.id);
         document.querySelectorAll('.edd-select-player').forEach(c => c.classList.remove('selected'));
         this.classList.add('selected');
     });
 });
 
-document.getElementById('edd-confirm-custom').addEventListener('click', function(e) {
-     e.preventDefault();
+document.getElementById('edd-confirm-custom').addEventListener('click', function (e) {
+    e.preventDefault();
 
 
     if (!selectedCard) {
@@ -415,9 +418,9 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
     let defending = document.getElementById('edd-DEF').value;
     let rating = document.getElementById('edd-RAT').value;
     // let position = document.getElementById('edd-position').value;
-    const nameRegex = /^[A-Za-z\s]+$/; 
-    const urlRegex = /^(https?:\/\/[^\s]+)/; 
-    const numberRegex = /^(4[0-9]|[5-9][0-9])$/; 
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const urlRegex = /^(https?:\/\/[^\s]+)/;
+    const numberRegex = /^(4[0-9]|[5-9][0-9])$/;
 
     let isValid = true;
 
@@ -437,8 +440,8 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         isValid = false;
     }
 
-    
-  
+
+
 
     if (!flag) {
         alert("L'URL du drapeau de la nation ne peut pas être vide.");
@@ -448,7 +451,7 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         isValid = false;
     }
 
-    
+
 
     if (!clubLogo) {
         alert("L'URL du logo du club ne peut pas être vide.");
@@ -471,7 +474,7 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         console.log(document.getElementById(selectedCard.id))
 
         if (!selectedCard.id.includes("GK")) {
-        document.getElementById(`${selectedCard.id}`).innerHTML = `
+            document.getElementById(`${selectedCard.id}`).innerHTML = `
             <div class="flex justify-center  ">
                                 <div class="cursor-pointer relative" >
                                     <div class=" top-0 right-0  p-1 absolute  z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
@@ -539,10 +542,11 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
                                         </div>
                                     </div>
                                 </div>
-        `;    }
+        `;
         }
-        else if (item.position.includes('GK')) {
-            document.getElementById(`${selectedCard.id}`).innerHTML += ` <div class="flex justify-center ">
+    }
+    else if (item.position.includes('GK')) {
+        document.getElementById(`${selectedCard.id}`).innerHTML += ` <div class="flex justify-center ">
             <div id="${item.rating + item.name}" class="cursor-pointer edd-filter-player" data-position="${selectedCard.dataset.position}">
                 <div
                     class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
@@ -607,7 +611,7 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
                 </div>
             </div>`
 
-        }
-        document.getElementById('form-custom-player').reset();
+    }
+    document.getElementById('form-custom-player').reset();
 
 })
