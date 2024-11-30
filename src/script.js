@@ -476,7 +476,7 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         if (!selectedCard.id.includes("GK")) {
             document.getElementById(`${selectedCard.id}`).innerHTML = `
             <div class="flex justify-center  ">
-                                <div class="cursor-pointer relative" >
+                                <div class="cursor-pointer relative" id="${selectedCard.id}" >
                                     <div class=" top-0 right-0  p-1 absolute  z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
                                         <span class="remove-player cursor-pointer font-bold text-red-500 text-sm">X</span> 
                                     </div>
@@ -545,34 +545,38 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         `;
         }
     }
-    else if (item.position.includes('GK')) {
-        document.getElementById(`${selectedCard.id}`).innerHTML += ` <div class="flex justify-center ">
-            <div id="${item.rating + item.name}" class="cursor-pointer edd-filter-player" data-position="${selectedCard.dataset.position}">
-                <div
-                    class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
-                    <div class="relative flex text-[#e9cc74] px-[0.3rem]">
-                        <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
-                            <div class="font-bold text-5xl text-[1rem] mt-5">${item.rating}</div>
-                            <div class="font-bold">${selectedCard.dataset.position}</div>
-                            <div class="block">
-                                <img src="${flag}" alt="Nationalité"
-                                    class="w-[1rem] h-[14px] object-contain" />
-                            </div>
-                            <div class="block">
-                                <img src="${clubLogo}" alt="Club"
-                                    class="w-[1rem] h-[14px] object-contain" />
-                            </div>
-                        </div>
-                        <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
-                            <img src="${photo}"
-                                alt="Nom du joueur"
-                                class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="text-[#e9cc74] w-[90%] mx-auto">
-                            <div
+    else if (selectedCard.id.includes('GK')) {
+        document.getElementById(`${selectedCard.id}`).innerHTML += ` 
+            <div class="flex justify-center  ">
+                                <div class="cursor-pointer relative" id="${selectedCard.id}" >
+                                    <div class=" top-0 right-0  p-1 absolute  z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
+                                        <span class="remove-player cursor-pointer font-bold text-red-500 text-sm">X</span> 
+                                    </div>
+                                    <div
+                                        class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                                        <div class="relative flex text-[#e9cc74] px-[0.3rem]">
+                                            <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
+                                                <div class="font-bold text-5xl text-[1rem] mt-5">${rating}</div>
+                                                <div class="font-bold">${selectedCard.dataset.position}</div>
+                                                <div class="block">
+                                                    <img src="${flag}" alt="Nationalité"
+                                                        class="w-[1rem] h-[14px] object-contain" />
+                                                </div>
+                                                <div class="block">
+                                                    <img src="${clubLogo}" alt="Club"
+                                                        class="w-[1rem] h-[14px] object-contain" />
+                                                </div>
+                                            </div>
+                                            <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+                                                <img src="${photo}"
+                                                    alt="Nom du joueur"
+                                                    class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
+                                            </div>
+                                        </div>
+                    
+                                        <div class="relative">
+                                            <div class="text-[#e9cc74] w-[90%] mx-auto">
+                                                <div
                                 class="text-center w-full text-[0.6rem] uppercase border-b-2 border-[#e9cc74]/[0.1]">
                                 <span class="block text-shadow-lg"></span>
                             </div>
