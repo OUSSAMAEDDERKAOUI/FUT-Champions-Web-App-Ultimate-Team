@@ -80,6 +80,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
         list.forEach(item => {
             // console.log(item.position)
             if (!item.position.includes("GK")) {
+
                 document.getElementById('edd-sub').innerHTML += ` <div id="${item.rating + item.name}" class="flex justify-center ">
                 <div  class="cursor-pointer " >
                 
@@ -398,6 +399,10 @@ document.querySelectorAll('.edd-select-player').forEach(card => {
         console.log(selectedCard.id);
         document.querySelectorAll('.edd-select-player').forEach(c => c.classList.remove('selected'));
         this.classList.add('selected');
+        // if(!selectedCard.id.includes("gk")){
+        //     document.getElementById('edd-player-stat').classList.remove('hidden');
+            
+        // }
     });
 });
 
@@ -478,6 +483,7 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
         console.log(document.getElementById(selectedCard.id))
 
         if (!selectedCard.id.includes("gk")) {
+
             document.getElementById(`${selectedCard.id}`).innerHTML = `
             <div class="flex justify-center  ">
                                 <div class="cursor-pointer relative" id="${selectedCard.id}" >
