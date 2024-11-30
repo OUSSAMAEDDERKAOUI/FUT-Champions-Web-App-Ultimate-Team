@@ -47,7 +47,6 @@ Bonjour ! Je m'appelle EDDERKAOUI OUSSAMA, et je suis développeur full stack. P
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oussama-edderkaoui-15a150332/)
 
 
-
 ## Other Common Github Profile Sections
 Je travaille actuellement sur...
 Un projet de gestion de tâches en utilisant React et Node.js.
