@@ -85,7 +85,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
                 <div  class="cursor-pointer " >
                 
                     <div
-                        class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                        class="relative md:w-[100px] md:h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
                         <div class="relative flex text-[#e9cc74] px-[0.3rem]">
                             <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
                                 <div class="font-bold text-5xl text-[1rem] mt-5">${item.rating}</div>
@@ -154,7 +154,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
  </div>
 
                 <div
-                    class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                    class="relative  md:w-[100px] md:h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
                     <div class="relative flex text-[#e9cc74] px-[0.3rem]">
                         <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
                             <div class="font-bold text-5xl text-[1rem] mt-5">${item.rating}</div>
@@ -399,10 +399,7 @@ document.querySelectorAll('.edd-select-player').forEach(card => {
         console.log(selectedCard.id);
         document.querySelectorAll('.edd-select-player').forEach(c => c.classList.remove('selected'));
         this.classList.add('selected');
-        // if(!selectedCard.id.includes("gk")){
-        //     document.getElementById('edd-player-stat').classList.remove('hidden');
-            
-        // }
+      
     });
 });
 
