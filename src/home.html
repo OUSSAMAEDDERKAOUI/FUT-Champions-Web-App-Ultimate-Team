@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <header class=" bg-gray-800 shadow-md">
+        <div class="container mx-auto flex items-center h-11 justify-between ">
+
+            <div class="flex items-center ml-10 md:ml-32">
+                <img src="./images/logo.png" alt="Logo" class="h-20 w-20">
+            </div>
+
+            <nav class="hidden md:flex space-x-16 mx-52">
+                <a href="home.html" class="text-white hover:text-gray-600">Home</a>
+                <a href="./index.html" class="text-white hover:text-gray-600">Squad</a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <div class="flex gap-10  mx-10">
+                    <a href="#" class="text-gray-800 text-2xl">
+                        <img src="./images/burger-bar (1).png" alt="icon1" class="w-6 h-6">
+                    </a>
+                </div>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="./home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
+            <a href="./index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Squad</a>
+        </div>
+
+    </header>
+    <div class=" bg-gray-900">
+        <div class="container px-6 py-8 mx-auto">
+            <h1 class="text-2xl font-semibold text-center  capitalize lg:text-3xl text-white">Pricing Plan</h1>
+    
+            <p class="max-w-2xl mx-auto mt-4 text-center text-gray-500 xl:mt-6 :text-gray-300">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quas magni libero consequuntur voluptatum velit amet id repudiandae ea, deleniti laborum in neque eveniet.
+            </p>
+    
+            <div class="grid grid-cols-1 gap-8 mt-6 xl:mt-12 xl:gap-12 md:grid-cols-2 lg:grid-cols-3">
+                <div class="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg :border-gray-700">
+                    <p class="font-mediumuppercase text-gray-300">Free</p>
+    
+                    <h2 class="text-4xl font-semibold  uppercase text-gray-100">
+                        $0
+                    </h2>
+    
+                    <p class="font-mediumdark text-gray-300">Life time</p>
+    
+                    <button class="w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Start Now
+                    </button>
+                </div>
+    
+                <div class="w-full p-8 space-y-8 text-center bg-blue-600 rounded-lg">
+                    <p class="font-medium text-gray-200 uppercase">Premium</p>
+    
+                    <h2 class="text-5xl font-bold  uppercase text-gray-100">
+                        $40
+                    </h2>
+    
+                    <p class="font-medium text-gray-200">Per month</p>
+    
+                    <button class="w-full px-4 py-2 mt-10 tracking-wide text-blue-500 capitalize transition-colors duration-300 transform bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:ring focus:ring-gray-200 focus:ring-opacity-80">
+                        Start Now
+                    </button>
+                </div>
+    
+                <div class="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg :border-gray-700">
+                    <p class="font-medium uppercase text-gray-300">Enterprise</p>
+     
+                    <h2 class="text-4xl font-semibold  uppercase text-gray-100">
+                        $100
+                    </h2>
+    
+                    <p class="font-medium text-gray-300">Life time</p>
+    
+                    <button class="w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Start Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-900 text-center py-3">
+        <div class="flex  flex-row justify-center space-x-6 items-center space-y-0 mb-4">
+            <a href="#" class=" text-2xl">
+                <img src="./images/twitter-brands-solid.svg" alt="icon1"
+                    class=" bg-white rounded-full w-6 h-6 text-xl py-1">
+            </a>
+            <a href="#" class="bg-white rounded-full w-6 h-6 text-3xl ">
+                <img src="./images/facebook-f-brands-solid.svg" alt="icon2"
+                    class=" bg-white rounded-full w-6 h-6 text-xl py-1">
+            </a>
+            <a href="#" class=" text-2xl">
+                <img src="./images/instagram-brands-solid.svg" alt="icon3"
+                    class=" bg-white rounded-full w-6 h-6 text-xl py-1">
+            </a>
+            <a href="#" class=" text-2xl">
+                <img src="./images/envelope-solid.svg" alt="icon4" class=" bg-white rounded-full w-6 h-6 text-xl py-1">
+            </a>
+        </div>
+        <p class="text-gray-500">Copyright ©2024 All rights reserved</p>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>

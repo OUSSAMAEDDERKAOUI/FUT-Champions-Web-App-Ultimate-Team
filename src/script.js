@@ -1,6 +1,14 @@
 // getElementById('edd-Choose-Exist-Player').onclick=function(){
 //     getElementById('edd-auto-players').class.list.remove('hidden')
 // }
+
+document.getElementById('menu-btn').addEventListener('click', function () {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+});
+
+
+
 document.getElementById('edd-exist-player').onclick = function () {
     document.getElementById('edd-exist-players').classList.remove('hidden');
     document.getElementById('form-custom-player').classList.add('hidden');
