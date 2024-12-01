@@ -1,11 +1,23 @@
 
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
 
-
-
-
-/* #edd-stade-section{
-    transform: perspective(1500px) rotateX(15deg);
+.shadow-gold:hover {
+    filter: drop-shadow(0 15px 15px rgba(255, 215, 0, 0.5)); 
+}
+.shadow-gold-sup:hover {
+    filter: drop-shadow(0 15px 15px rgba(247, 240, 240, 0.2)); 
+}
+/* @media (min-width: 768px) {
+    #edd-stade-img{
+        transform: perspective(1500px) rotateX(15deg);
+    }
 } */
+
 #edd-badges div{
     z-index: 100;
 }

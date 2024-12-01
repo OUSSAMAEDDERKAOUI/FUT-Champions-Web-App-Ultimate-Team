@@ -5,9 +5,9 @@ document.getElementById('edd-exist-player').onclick = function () {
     document.getElementById('edd-exist-players').classList.remove('hidden');
     document.getElementById('form-custom-player').classList.add('hidden');
 };
-document.getElementById('edd-cancel-custom2').onclick = function () {
-    document.getElementById('edd-popup').classList.add('hidden');
-};
+// document.getElementById('edd-cancel-custom2').onclick = function () {
+//     document.getElementById('edd-popup').classList.add('hidden');
+// };
 
 document.getElementById('edd-cancel-custom3').onclick = function () {
     document.getElementById('edd-popup').classList.add('hidden');
@@ -81,7 +81,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
             // console.log(item.position)
             if (!item.position.includes("GK")) {
 
-                document.getElementById('edd-sub').innerHTML += ` <div id="${item.rating + item.name}" class="flex justify-center ">
+                document.getElementById('edd-sub').innerHTML += ` <div id="${item.rating + item.name}" class="flex justify-center transition-all duration-300   shadow-gold-sup hover:scale-105 ">
                 <div  class="cursor-pointer " >
                 
                     <div
@@ -147,17 +147,17 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
                     </div>
                 </div>`
 
-                document.getElementById('edd-auto-players').innerHTML += ` <div  class="flex justify-center edd-filter-player " data-position="${item.position}">
+                document.getElementById('edd-auto-players').innerHTML += ` <div  class="flex justify-center edd-filter-player transition-all duration-300   shadow-gold-sup hover:scale-105 " data-position="${item.position}">
             <div  class="cursor-pointer relative holaclass  " id="${item.rating + item.name}" >
             <div class=" top-0 right-0 p-1 absolute w-11 h-5 z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
    <span class="remove-player cursor-pointer font-bold text-red-500 text-sm">X</span> 
  </div>
 
                 <div
-                    class="relative  md:w-[100px] md:h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                    class="relative mx-1 w-20 md:w-[100px] h-32 md:h-[150px] md:p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
                     <div class="relative flex text-[#e9cc74] px-[0.3rem]">
-                        <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
-                            <div class="font-bold text-5xl text-[1rem] mt-5">${item.rating}</div>
+                        <div class="absolute py-[0.8rem_0] text-xs uppercase mb-1 md:mb-0 font-light">
+                            <div class="font-bold text-5xl text-[1rem] mb-0 mt-5">${item.rating}</div>
                             <div class="font-bold">${item.position}</div>
                             <div class="block">
                                 <img src="${item.flag}" alt="Nationalité"
@@ -168,7 +168,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
                                     class="w-[1rem] h-[14px] object-contain" />
                             </div>
                         </div>
-                        <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+                        <div class="w-14 md:w-[70px]  h-16 md:h-[80px] mx-auto mt-3 md:mt-0 overflow-hidden">
                             <img src="${item.photo}"
                                 alt="Nom du joueur"
                                 class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
@@ -217,7 +217,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
             </div>`
             }
             else if (item.position.includes('GK')) {
-                document.getElementById('edd-sub').innerHTML += ` <div class="flex justify-center ">
+                document.getElementById('edd-sub').innerHTML += ` <div class="flex justify-center transition-all duration-300   shadow-gold-sup hover:scale-105 ">
                 
                     <div
                         class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
@@ -281,17 +281,17 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
                         </div>
                     </div>
                 </div>`
-                document.getElementById('edd-auto-players').innerHTML += ` <div class="flex justify-center ">
+                document.getElementById('edd-auto-players').innerHTML += ` <div class="flex justify-center  transition-all duration-300   shadow-gold-sup hover:scale-105">
             <div id="${item.rating + item.name}" class="cursor-pointer edd-filter-player" data-position="${item.position}">
             <div id="${item.rating + item.name}" class="cursor-pointer relative">
                  <div class=" top-0 right-0 p-1 absolute w-11 h-5 z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
    <span class="remove-player cursor-pointer font-bold text-red-500 text-sm">X</span> 
  </div>
                 <div
-                    class="relative w-[100px] h-[150px] p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
+                    class="relative mx-1 w-20 md:w-[100px] h-32 md:h-[150px] md:p-3 bg-cover bg-center bg-[url('./images/badge_total_rush.webp')] ">
                     <div class="relative flex text-[#e9cc74] px-[0.3rem]">
-                        <div class="absolute py-[0.8rem_0] text-xs uppercase font-light">
-                            <div class="font-bold text-5xl text-[1rem] mt-5">${item.rating}</div>
+                        <div class="absolute py-[0.8rem_0] text-xs uppercase mb-1 md:mb-0 font-light">
+                            <div class="font-bold text-5xl text-[1rem] mb-0 mt-5">${item.rating}</div>
                             <div class="font-bold">${item.position}</div>
                             <div class="block">
                                 <img src="${item.flag}" alt="Nationalité"
@@ -302,7 +302,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
                                     class="w-[1rem] h-[14px] object-contain" />
                             </div>
                         </div>
-                        <div class="w-[70px] h-[80px] mx-auto overflow-hidden">
+                        <div class="w-14 md:w-[70px]  h-16 md:h-[80px] mx-auto mt-3 md:mt-0 overflow-hidden">
                             <img src="${item.photo}"
                                 alt="Nom du joueur"
                                 class="w-full h-full object-contain relative right-[-1rem] bottom-0" />
