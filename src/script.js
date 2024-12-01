@@ -383,7 +383,7 @@ fetch(`https://oussamaedderkaoui.github.io/OUSSAMAEDDERKAOUI-FUT-Champ-Ultimate-
 function removePlayer(event, element) {
     event.stopPropagation();
     const card = element.closest('.cursor-pointer');
-console.log(card.id)
+    console.log(card.id)
     if (card) {
 
         // card.remove();
@@ -407,7 +407,15 @@ document.querySelectorAll('.edd-select-player').forEach(card => {
         console.log(selectedCard.id);
         document.querySelectorAll('.edd-select-player').forEach(c => c.classList.remove('selected'));
         this.classList.add('selected');
-      
+        if (!selectedCard.id.includes("gk")) {
+            document.getElementById('edd-form-players').classList.remove('hidden');
+            document.getElementById('edd-form-kep').classList.add('hidden');
+        }
+        if (selectedCard.id.includes("gk")) {
+            document.getElementById('edd-form-players').classList.add('hidden');
+            document.getElementById('edd-form-kep').classList.remove('hidden');
+        }
+
     });
 });
 
@@ -424,72 +432,76 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
     let photo = document.getElementById('edd-player-picture').value.trim();
     let flag = document.getElementById('edd-nation-flag').value.trim();
     let clubLogo = document.getElementById('edd-club-logo').value.trim();
-    let pace = document.getElementById('edd-PAC').value;
-    let shooting = document.getElementById('edd-SHO').value;
-    let physical = document.getElementById('edd-PHY').value;
-    let passing = document.getElementById('edd-PAS').value;
-    let dribbling = document.getElementById('edd-DRI').value;
-    let defending = document.getElementById('edd-DEF').value;
+
     let rating = document.getElementById('edd-RAT').value;
     // let position = document.getElementById('edd-position').value;
-    const nameRegex = /^[A-Za-z\s]+$/;
+    const nameRegex = /^(?=.*[A-Za-z])(?=.*[A-Za-z].*[A-Za-z])[A-Za-z\s]+$/;
     const urlRegex = /^(https?:\/\/[^\s]+)/;
     const numberRegex = /^(4[0-9]|[5-9][0-9])$/;
 
     let isValid = true;
 
-    if (!name) {
-        alert("Le nom du joueur ne peut pas être vide.");
-        isValid = false;
-    } else if (!nameRegex.test(name)) {
-        alert("Le nom du joueur n'est pas valide. Utilisez uniquement des lettres et des espaces.");
-        isValid = false;
-    }
 
-    if (!photo) {
-        alert("L'URL de l'image du joueur ne peut pas être vide.");
-        isValid = false;
-    } else if (!urlRegex.test(photo)) {
-        alert("L'URL de l'image du joueur n'est pas valide.");
-        isValid = false;
-    }
+    if (!selectedCard.id.includes("gk")) {
+        let pace = document.getElementById('edd-PAC').value;
+        let shooting = document.getElementById('edd-SHO').value;
+        let physical = document.getElementById('edd-PHY').value;
+        let passing = document.getElementById('edd-PAS').value;
+        let dribbling = document.getElementById('edd-DRI').value;
+        let defending = document.getElementById('edd-DEF').value;
 
-
-
-
-    if (!flag) {
-        alert("L'URL du drapeau de la nation ne peut pas être vide.");
-        isValid = false;
-    } else if (!urlRegex.test(flag)) {
-        alert("L'URL du drapeau de la nation n'est pas valide.");
-        isValid = false;
-    }
-
-
-
-    if (!clubLogo) {
-        alert("L'URL du logo du club ne peut pas être vide.");
-        isValid = false;
-    } else if (!urlRegex.test(clubLogo)) {
-        alert("L'URL du logo du club n'est pas valide.");
-        isValid = false;
-    }
-
-    [pace, shooting, physical, passing, dribbling, defending, rating].forEach((value, index) => {
-        if (!numberRegex.test(value)) {
-            alert(`La valeur numéro ${index + 1} doit être entre 40 et 99.`);
+        if (!name) {
+            alert("Le nom du joueur ne peut pas être vide.");
+            isValid = false;
+        } else if (!nameRegex.test(name)) {
+            alert("Le nom du joueur n'est pas valide. Utilisez uniquement des lettres et des espaces.");
             isValid = false;
         }
-    });
+
+        if (!photo) {
+            alert("L'URL de l'image du joueur ne peut pas être vide.");
+            isValid = false;
+        } else if (!urlRegex.test(photo)) {
+            alert("L'URL de l'image du joueur n'est pas valide.");
+            isValid = false;
+        }
 
 
-    if (isValid) {
-        alert("Formulaire soumis avec succès !");
-        console.log(document.getElementById(selectedCard.id))
 
-        if (!selectedCard.id.includes("gk")) {
 
-            document.getElementById(`${selectedCard.id}`).innerHTML = `
+        if (!flag) {
+            alert("L'URL du drapeau de la nation ne peut pas être vide.");
+            isValid = false;
+        } else if (!urlRegex.test(flag)) {
+            alert("L'URL du drapeau de la nation n'est pas valide.");
+            isValid = false;
+        }
+
+
+
+        if (!clubLogo) {
+            alert("L'URL du logo du club ne peut pas être vide.");
+            isValid = false;
+        } else if (!urlRegex.test(clubLogo)) {
+            alert("L'URL du logo du club n'est pas valide.");
+            isValid = false;
+        }
+
+        [pace, shooting, physical, passing, dribbling, defending, rating].forEach((value, index) => {
+            if (!numberRegex.test(value)) {
+                alert(`La valeur numéro ${index + 1} doit être entre 40 et 99.`);
+                isValid = false;
+            }
+        });
+
+
+        if (isValid) {
+            alert("Formulaire soumis avec succès !");
+            console.log(document.getElementById(selectedCard.id))
+
+            if (!selectedCard.id.includes("gk")) {
+
+                document.getElementById(`${selectedCard.id}`).innerHTML = `
             <div class="flex justify-center  ">
                                 <div class="cursor-pointer relative" id="${selectedCard.id}" >
                                     <div class=" top-0 right-0  p-1 absolute  z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
@@ -558,11 +570,76 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
                                     </div>
                                 </div>
         `;
-        }
-        else if (selectedCard.id.includes('gk')) {
-            document.getElementById(`${selectedCard.id}`).innerHTML =``;
+            }
 
-            document.getElementById(`${selectedCard.id}`).innerHTML += ` 
+
+        }
+
+    }
+    if (selectedCard.id.includes("gk")) {
+        document.getElementById('edd-form-players').classList.add('hidden');
+        document.getElementById('edd-form-kep').classList.remove('hidden');
+
+
+        let diving = document.getElementById('edd-DIV').value;
+        let handling = document.getElementById('edd-HAN').value;
+        let reflexing = document.getElementById('edd-REF').value;
+        let positioning = document.getElementById('edd-POS').value;
+        let speed = document.getElementById('edd-SPE').value;
+        let kicking = document.getElementById('edd-KIC').value;
+
+        if (!name) {
+            alert("Le nom du joueur ne peut pas être vide.");
+            isValid = false;
+        } else if (!nameRegex.test(name)) {
+            alert("Le nom du joueur n'est pas valide. Utilisez uniquement des lettres et des espaces.");
+            isValid = false;
+        }
+
+        if (!photo) {
+            alert("L'URL de l'image du joueur ne peut pas être vide.");
+            isValid = false;
+        } else if (!urlRegex.test(photo)) {
+            alert("L'URL de l'image du joueur n'est pas valide.");
+            isValid = false;
+        }
+
+
+
+
+        if (!flag) {
+            alert("L'URL du drapeau de la nation ne peut pas être vide.");
+            isValid = false;
+        } else if (!urlRegex.test(flag)) {
+            alert("L'URL du drapeau de la nation n'est pas valide.");
+            isValid = false;
+        }
+
+
+
+        if (!clubLogo) {
+            alert("L'URL du logo du club ne peut pas être vide.");
+            isValid = false;
+        } else if (!urlRegex.test(clubLogo)) {
+            alert("L'URL du logo du club n'est pas valide.");
+            isValid = false;
+        }
+
+        [diving, kicking, speed, positioning, handling, reflexing, rating].forEach((value, index) => {
+            if (!numberRegex.test(value)) {
+                alert(`La valeur numéro ${index + 1} doit être entre 40 et 99.`);
+                isValid = false;
+            }
+        });
+
+
+        if (isValid) {
+            alert("Formulaire soumis avec succès !");
+            console.log(document.getElementById(selectedCard.id))
+            if (selectedCard.id.includes('gk')) {
+                document.getElementById(`${selectedCard.id}`).innerHTML = ``;
+
+                document.getElementById(`${selectedCard.id}`).innerHTML += ` 
                 <div class="flex justify-center  ">
                                     <div class="cursor-pointer relative" id="${selectedCard.id}" >
                                         <div class=" top-0 right-0  p-1 absolute  z-50 flex justify-center text-right"  onclick="removePlayer(event,this)">
@@ -599,29 +676,29 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
                                 <div id="blabla" class="flex gap-x-2 ">
                                     <div class=" ">
                                         <div class="flex  text-[0.5rem] uppercase">
-                                            <div class="font-bold mr-[0.3rem]">${dribbling}</div>
+                                            <div class="font-bold mr-[0.3rem]">${diving}</div>
                                             <div class="font-light">DIV</div>
                                         </div>
                                         <div class="flex  text-[0.5rem] uppercase">
-                                            <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+                                            <span class="font-bold mr-[0.3rem]">${handling}</span>
                                             <span class="font-light">HAN</span>
                                         </div>
                                         <div class="flex text-[0.5rem] uppercase">
-                                            <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+                                            <span class="font-bold mr-[0.3rem]">${reflexing}</span>
                                             <span class="font-light">REF</span>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="flex  text-[0.5rem] uppercase">
-                                            <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+                                            <span class="font-bold mr-[0.3rem]">${kicking}</span>
                                             <span class="font-light">KIC</span>
                                         </div>
                                         <div class="flex  text-[0.5rem] uppercase">
-                                            <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+                                            <span class="font-bold mr-[0.3rem]">${speed}</span>
                                             <span class="font-light">SPD</span>
                                         </div>
                                         <div class="flex  text-[0.5rem] uppercase">
-                                            <span class="font-bold mr-[0.3rem]">${dribbling}</span>
+                                            <span class="font-bold mr-[0.3rem]">${positioning}</span>
                                             <span class="font-light">POS</span>
                                         </div>
                                     </div>
@@ -630,10 +707,17 @@ document.getElementById('edd-confirm-custom').addEventListener('click', function
                         </div>
                     </div>
                 </div>`
-    
+
+            }
         }
+
+
+
     }
-    
+
+
+
+
     document.getElementById('form-custom-player').reset();
 
 })
