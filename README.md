@@ -1,5 +1,5 @@
 # FUT Champions Web App Ultimate Team
-https://github.com/user-attachments/assets/9f905390-4ba6-4119-8d8c-9d0a1e01ac4f
+![logo](https://github.com/user-attachments/assets/9f905390-4ba6-4119-8d8c-9d0a1e01ac4f)
 
 Ce projet consiste en le développement d'une application web interactive permettant aux utilisateurs de créer et de gérer leur équipe de Fantasy Ultimate Team (FUT). Les utilisateurs peuvent ajouter, positionner et modifier des joueurs au sein de formations tactiques prédéfinies telles que 4-4-2 .
 
@@ -24,15 +24,16 @@ Ce projet consiste en le développement d'une application web interactive permet
 
 ##Fonctionnalités Clés
 1.Ajout Dynamique de Joueurs
-https://github.com/user-attachments/assets/5456e605-693a-447e-a99b-845ae6349694
+![PLAN DE JEU](https://github.com/user-attachments/assets/5456e605-693a-447e-a99b-845ae6349694)
 
-https://github.com/user-attachments/assets/29851e35-2934-4fbe-bc73-10292b9b07c0
+![SQUAD](https://github.com/user-attachments/assets/29851e35-2934-4fbe-bc73-10292b9b07c0)
 
-https://github.com/user-attachments/assets/befff8f7-975a-41bc-a659-e9b86e0a9bd0
+![ADD PLAYERS](https://github.com/user-attachments/assets/befff8f7-975a-41bc-a659-e9b86e0a9bd0)
+
 2.Ajout Automatique
-https://github.com/user-attachments/assets/a1847667-32a0-4a6a-8669-6ac72ac7fee6
+![AUTO](https://github.com/user-attachments/assets/a1847667-32a0-4a6a-8669-6ac72ac7fee6)
 3.Ajout Dynamique
-https://github.com/user-attachments/assets/300bb6eb-5bdb-490d-94d0-5c783aae378a
+![FORM](https://github.com/user-attachments/assets/300bb6eb-5bdb-490d-94d0-5c783aae378a)
 
 ## Deployment
 
@@ -77,4 +78,4 @@ Vous pouvez me joindre par email à edderkaouioussama@gmail.com .
 
 ## 🛠 Skills
 Javascript, HTML, CSS...
-https://github.com/user-attachments/assets/cf6eef20-2b34-49c1-ab70-3c2c0feeb414
+![youcode](https://github.com/user-attachments/assets/cf6eef20-2b34-49c1-ab70-3c2c0feeb414)
