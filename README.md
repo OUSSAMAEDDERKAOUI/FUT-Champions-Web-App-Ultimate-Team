@@ -1,5 +1,5 @@
 # FUT Champions Web App Ultimate Team
-![logo](https://github.com/user-attachments/assets/9f905390-4ba6-4119-8d8c-9d0a1e01ac4f)
+![logo1](https://github.com/user-attachments/assets/5eef9a32-9ec8-4cf6-a9be-3edf733e267c)
 
 Ce projet consiste en le développement d'une application web interactive permettant aux utilisateurs de créer et de gérer leur équipe de Fantasy Ultimate Team (FUT). Les utilisateurs peuvent ajouter, positionner et modifier des joueurs au sein de formations tactiques prédéfinies telles que 4-4-2 .
 
